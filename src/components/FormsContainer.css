@@ -1,0 +1,57 @@
+.forms__container {
+    display: flex;
+    flex-direction: column;
+    padding: 30px 70px 10px 70px;
+    flex-grow: 1;
+}
+.title__container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    margin-bottom: 24px;
+}
+.title__container > h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
+    color: var(--marine-blue);
+}
+.title__container > p {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: var(--cool-gray);
+}
+.section {
+    flex-grow: 1;
+}
+.buttons__container {
+    display: flex;
+    width: 100%;
+    margin-top: 80px;
+}
+.buttons__container > button {
+    width: 110px;
+    height: 42px;
+    border-radius: 6px;
+    border: 1px solid transparent;
+    font-weight: 500;
+    font-size: 1.4rem;
+    font-family: 'Ubuntu';
+    cursor: pointer;
+    transition: 0.3s;
+}
+.back {
+    background-color: transparent;
+    color: var(--cool-gray);
+}
+.back:hover {
+    color: var(--marine-blue);
+}
+.step {
+    background-color: var(--marine-blue);
+    color: var(--alabaster);
+    margin-left: auto;
+}
+.step:hover {
+    background-color: var(--pastel-blue);
+    color: white;
+}

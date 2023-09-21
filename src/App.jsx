@@ -1,9 +1,17 @@
 import { React } from 'react'
+import Aside from './components/Aside'
+import './style.css'
+import FormsContainer from './components/FormsContainer'
 
 export default function App () {
   return (
     <>
-      <h1>Hello, world!</h1>
+      <main>
+        <section className='multi-forms__container'>
+          <Aside />
+          <FormsContainer />
+        </section>
+      </main>
     </>
   )
 }
