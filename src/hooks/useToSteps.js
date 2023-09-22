@@ -1,7 +1,7 @@
 import { useContext } from 'react'
 import { StepsContexts } from '../context/changeStep'
 
-export function toSteps () {
+export function useToSteps () {
   const { setActiveForm } = useContext(StepsContexts)
 
   const toStep1 = () => {

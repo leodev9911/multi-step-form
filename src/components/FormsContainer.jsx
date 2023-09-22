@@ -5,15 +5,35 @@ import Step2 from '../components/Step2'
 import Step3 from '../components/Step3'
 import Step4 from '../components/Step4'
 import { StepsContexts } from '../context/changeStep'
+import { useNextButton } from '../hooks/useNextButtons'
 
 export default function FormsContainer () {
   const { activeForm } = useContext(StepsContexts)
+  const { handleNextButton, handleBackButton } = useNextButton()
+
+  let H1 = ''
+  let P = ''
+
+  if (activeForm.step1) {
+    H1 = 'Personal info'
+    P = 'Please provide your name, email address, and phone number.'
+  } else if (activeForm.step2) {
+    H1 = 'Select your plan'
+    P = 'You have the option of monthly or year billing.'
+  } else if (activeForm.step3) {
+    H1 = 'Pick add-ons'
+    P = 'Add ons help enhance your gaming experience'
+  } else if (activeForm.step4) {
+    H1 = 'Finishing up'
+    P = 'Double check everything looks OK before confirming.'
+  }
+
   return (
     <>
       <section className='forms__container'>
         <div className='title__container'>
-          <h1>Personal info</h1>
-          <p>Please provide your name, email address, and phone number</p>
+          <h1>{H1}</h1>
+          <p>{P}</p>
         </div>
         <div className='section'>
           {activeForm.step1 && <Step1 />}
@@ -22,8 +42,26 @@ export default function FormsContainer () {
           {activeForm.step4 && <Step4 />}
         </div>
         <div className='buttons__container'>
-          {!activeForm.step1 && <button className='back'>Go Back</button>}
-          <button className='step'>Next Step</button>
+          {!activeForm.step1 &&
+            <button
+              className='back'
+              onClick={handleBackButton}
+            >
+              Go Back
+            </button>}
+          {!activeForm.step4 &&
+            <button
+              className='step'
+              onClick={handleNextButton}
+            >
+              Next Step
+            </button>}
+          {activeForm.step4 &&
+            <button
+              className='step'
+            >
+              Confirm
+            </button>}
         </div>
       </section>
     </>

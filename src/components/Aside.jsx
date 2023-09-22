@@ -1,10 +1,10 @@
 import { useContext } from 'react'
-import { toSteps } from '../hooks/toSteps'
+import { useToSteps } from '../hooks/useToSteps'
 import './Aside.css'
 import { StepsContexts } from '../context/changeStep'
 
 export default function Aside () {
-  const { toStep1, toStep2, toStep3, toStep4 } = toSteps()
+  const { toStep1, toStep2, toStep3, toStep4 } = useToSteps()
   const { activeForm } = useContext(StepsContexts)
 
   return (
