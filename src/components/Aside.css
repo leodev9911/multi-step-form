@@ -2,7 +2,7 @@ aside {
     display: flex;
     flex-direction: column;
     gap: 26px;
-    max-width: 320px;
+    width: 280px;
     height: 100%;
     padding: 30px;
     background-image: url(../assets/images/bg-sidebar-desktop.svg);
@@ -35,7 +35,7 @@ aside {
     color: black;
     background-color: var(--light-blue);
 }
-.active {
+.button.active {
     color: black;
     background-color: var(--light-blue);
 }

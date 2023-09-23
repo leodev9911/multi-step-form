@@ -3,7 +3,7 @@ import './Step1.css'
 
 export default function Step1 () {
   return (
-    <form>
+    <form className='step1__form'>
       <div>
         <label htmlFor='name'>Name</label>
         <input

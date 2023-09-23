@@ -1,0 +1,81 @@
+.step2-inputs {
+    display: none;
+}
+.checkbox-form {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    margin-bottom: 50px;   
+}
+.checkbox-form > label {
+    width: 100%;
+    min-width: 90px;
+    max-width: 160px;
+    height: 170px;
+    border-radius: 6px;
+    padding: 12px;
+    padding-top: 16px;
+    border: 1px solid var(--light-gray);
+    transition: 0.3s;
+    cursor: pointer;
+}
+.checkbox-form > label:hover {
+    border: 1px solid var(--purplish-blue);
+} 
+.checkbox-form > #arcade:checked~.arcade-label {
+    border: 1px solid var(--purplish-blue);
+}
+.checkbox-form > #advanced:checked~.advanced-label {
+    border: 1px solid var(--purplish-blue);
+}
+.checkbox-form > #pro:checked~.pro-label {
+    border: 1px solid var(--purplish-blue);
+}
+.checkbox-form > label img {
+    width: 36px;
+    margin-bottom: 68px;
+}
+.checkbox-form > label > h3 {
+    font-size: 1.4rem;
+    color: var(--marine-blue);
+    margin-bottom: 4px;
+}
+.checkbox-form > label > p {
+    font-size: 1.2rem;
+    color: var(--cool-gray);
+}
+.toggleButton__container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--cool-gray);
+}
+.toggleButton__container > .active {
+    color: var(--marine-blue);
+    transition: 0.3s;
+}
+.dot__container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    width: 50px;
+    height: 24px;
+    padding: 4px;
+    cursor: pointer;
+    background-color: var(--marine-blue);
+    border-radius: 20px;
+}
+.dot {
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border-radius: 50%;
+    transition: all 0.2s ease-in-out;
+}
+.dot.right {
+    transform: translateX(24px);
+}

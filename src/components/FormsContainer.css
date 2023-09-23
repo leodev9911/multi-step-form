@@ -1,7 +1,7 @@
 .forms__container {
     display: flex;
     flex-direction: column;
-    padding: 30px 70px 10px 70px;
+    padding: 30px 30px 10px 10px;
     flex-grow: 1;
 }
 .title__container {
