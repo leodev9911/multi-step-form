@@ -1,11 +1,12 @@
-import { React, useState } from 'react'
+import { React, useContext } from 'react'
 import iconArcade from '../assets/images/icon-arcade.svg'
 import iconAdvanced from '../assets/images/icon-advanced.svg'
 import iconPro from '../assets/images/icon-pro.svg'
 import './Step2.css'
+import { FormsContext } from '../context/formsContext'
 
 export default function Step2 () {
-  const [monthly, setMonthly] = useState(true)
+  const { monthly, setMonthly } = useContext(FormsContext)
 
   const toggleMonth = () => {
     setMonthly(prev => !prev)

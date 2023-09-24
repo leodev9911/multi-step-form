@@ -1,0 +1,44 @@
+.step3-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+.step3-form > label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    height: 84px;
+    padding: 0px 20px 0px 20px;
+    border: 1px solid var(--light-gray);
+    border-radius: 6px;
+    transition: 0.3s;
+    cursor: pointer;
+}
+.step3-form > label.active {
+    border: 1px solid var(--purplish-blue);
+}
+.step3-form > label:hover {
+    border: 1px solid var(--purplish-blue);
+}
+.step3-form > label > input {
+    width: 20px;
+    height: 20px;
+    margin-right: 20px;
+    accent-color: var(--purplish-blue);
+}
+.info > h3 {
+    font-size: 1.6rem;
+    counter-reset: var(--marine-blue);
+    margin-bottom: 4px;
+}
+.info > p {
+    font-size: 1.4em;
+    font-weight: 500;
+    color: var(--cool-gray);
+}
+.price {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--purplish-blue);
+    margin-left: auto;
+}
