@@ -54,7 +54,7 @@ export function useToSteps () {
   }
   const toStep4 = () => {
     setActiveForm(prev => {
-      if (!prev.step1) {
+      if (!prev.step4) {
         return {
           step1: false,
           step2: false,

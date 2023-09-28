@@ -1,9 +1,11 @@
 import { React, useContext } from 'react'
 import { FormsContext } from '../context/formsContext'
 import './Step3.css'
+import { useFormsInfo } from '../hooks/useFormsInfo'
 
 export default function Step3 () {
-  const { monthly } = useContext(FormsContext)
+  const { monthly, formsInfo } = useContext(FormsContext)
+  const { handleChange } = useFormsInfo()
 
   return (
     <form className='step3-form'>
@@ -12,6 +14,9 @@ export default function Step3 () {
           type='checkbox'
           id='online'
           className='online-input'
+          checked={formsInfo.online}
+          onChange={handleChange}
+          name='online'
         />
         <div className='info'>
           <h3>Online Service</h3>
@@ -24,6 +29,9 @@ export default function Step3 () {
           type='checkbox'
           id='storage'
           className='storage-input'
+          checked={formsInfo.storage}
+          onChange={handleChange}
+          name='storage'
         />
         <div className='info'>
           <h3>Larger Storage</h3>
@@ -36,6 +44,9 @@ export default function Step3 () {
           type='checkbox'
           id='profile'
           className='profile-input'
+          checked={formsInfo.customizable}
+          onChange={handleChange}
+          name='customizable'
         />
         <div className='info'>
           <h3>Customizable Profile</h3>

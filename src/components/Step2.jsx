@@ -4,9 +4,11 @@ import iconAdvanced from '../assets/images/icon-advanced.svg'
 import iconPro from '../assets/images/icon-pro.svg'
 import './Step2.css'
 import { FormsContext } from '../context/formsContext'
+import { useFormsInfo } from '../hooks/useFormsInfo'
 
 export default function Step2 () {
-  const { monthly, setMonthly } = useContext(FormsContext)
+  const { monthly, setMonthly, arcade, advanced, pro } = useContext(FormsContext)
+  const { handleChange } = useFormsInfo()
 
   const toggleMonth = () => {
     setMonthly(prev => !prev)
@@ -19,7 +21,9 @@ export default function Step2 () {
           className='step2-inputs'
           id='arcade'
           type='radio'
-          name='step2'
+          name='subscription'
+          value='Arcade'
+          onChange={handleChange}
         />
         <label
           className='arcade-label'
@@ -27,13 +31,15 @@ export default function Step2 () {
         >
           <img src={iconArcade} alt='Arcade icon' />
           <h3>Arcade</h3>
-          <p>${monthly ? '9/mo' : '90/yr'}</p>
+          <p>${monthly ? `${arcade.monthly}/mo` : `${arcade.yearly}/yr`}</p>
         </label>
         <input
           className='step2-inputs'
           id='advanced'
           type='radio'
-          name='step2'
+          name='subscription'
+          value='Advanced'
+          onChange={handleChange}
         />
         <label
           className='advanced-label'
@@ -41,13 +47,15 @@ export default function Step2 () {
         >
           <img src={iconAdvanced} alt='Advanced icon' />
           <h3>Advanced</h3>
-          <p>${monthly ? '12/mo' : '120/yr'}</p>
+          <p>${monthly ? `${advanced.monthly}/mo` : `${advanced.yearly}/yr`}</p>
         </label>
         <input
           className='step2-inputs'
           id='pro'
           type='radio'
-          name='step2'
+          name='subscription'
+          value='Pro'
+          onChange={handleChange}
         />
         <label
           className='pro-label'
@@ -55,7 +63,7 @@ export default function Step2 () {
         >
           <img src={iconPro} alt='Arcade icon' />
           <h3>Pro</h3>
-          <p>${monthly ? '15/mo' : '150/yr'}</p>
+          <p>${monthly ? `${pro.monthly}/mo` : `${pro.yearly}/yr`}</p>
         </label>
       </form>
       <div className='toggleButton__container'>
