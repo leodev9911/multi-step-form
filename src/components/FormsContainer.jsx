@@ -4,12 +4,13 @@ import Step1 from '../components/Step1'
 import Step2 from '../components/Step2'
 import Step3 from '../components/Step3'
 import Step4 from '../components/Step4'
+import Step5 from '../components/Step5'
 import { StepsContexts } from '../context/changeStep'
 import { useNextButton } from '../hooks/useNextButtons'
 
 export default function FormsContainer () {
   const { activeForm } = useContext(StepsContexts)
-  const { handleNextButton, handleBackButton } = useNextButton()
+  const { handleNextButton, handleBackButton, handleConfirmButton } = useNextButton()
 
   let H1 = ''
   let P = ''
@@ -40,16 +41,17 @@ export default function FormsContainer () {
           {activeForm.step2 && <Step2 />}
           {activeForm.step3 && <Step3 />}
           {activeForm.step4 && <Step4 />}
+          {activeForm.step5 && <Step5 />}
         </div>
         <div className='buttons__container'>
-          {!activeForm.step1 &&
+          {(!activeForm.step1 && !activeForm.step5) &&
             <button
               className='back'
               onClick={handleBackButton}
             >
               Go Back
             </button>}
-          {!activeForm.step4 &&
+          {(!activeForm.step4 && !activeForm.step5) &&
             <button
               className='step'
               onClick={handleNextButton}
@@ -59,6 +61,7 @@ export default function FormsContainer () {
           {activeForm.step4 &&
             <button
               className='step'
+              onClick={handleConfirmButton}
             >
               Confirm
             </button>}

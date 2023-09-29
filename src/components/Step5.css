@@ -1,0 +1,19 @@
+.step5__section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.step5__section > h2 {
+    font-size: 2.8rem;
+    color: var(--marine-blue);
+}
+.step5__section > p {
+    font-size: 1.7rem;
+    line-height: 2.6rem;
+    color: var(--cool-gray);
+}

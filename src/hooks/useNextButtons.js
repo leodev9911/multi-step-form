@@ -66,5 +66,17 @@ export function useNextButton () {
     }
   }
 
-  return { handleNextButton, handleBackButton }
+  const handleConfirmButton = () => {
+    setActiveForm(prev => {
+      return {
+        step1: false,
+        step2: false,
+        step3: false,
+        step4: false,
+        step5: true
+      }
+    })
+  }
+
+  return { handleNextButton, handleBackButton, handleConfirmButton }
 }
