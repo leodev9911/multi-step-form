@@ -15,7 +15,7 @@ export default function FormsContainer () {
   let H1 = ''
   let P = ''
 
-  if (activeForm.step1) {
+  if (activeForm.step1.active) {
     H1 = 'Personal info'
     P = 'Please provide your name, email address, and phone number.'
   } else if (activeForm.step2) {
@@ -32,19 +32,21 @@ export default function FormsContainer () {
   return (
     <>
       <section className='forms__container'>
-        <div className='title__container'>
-          <h1>{H1}</h1>
-          <p>{P}</p>
-        </div>
-        <div className='section'>
-          {activeForm.step1 && <Step1 />}
-          {activeForm.step2 && <Step2 />}
-          {activeForm.step3 && <Step3 />}
-          {activeForm.step4 && <Step4 />}
-          {activeForm.step5 && <Step5 />}
-        </div>
+        <section className='mobile-section'>
+          <div className='title__container'>
+            <h1>{H1}</h1>
+            <p>{P}</p>
+          </div>
+          <div className='section'>
+            {activeForm.step1.active && <Step1 />}
+            {activeForm.step2 && <Step2 />}
+            {activeForm.step3 && <Step3 />}
+            {activeForm.step4 && <Step4 />}
+            {activeForm.step5 && <Step5 />}
+          </div>
+        </section>
         <div className='buttons__container'>
-          {(!activeForm.step1 && !activeForm.step5) &&
+          {(!activeForm.step1.active && !activeForm.step5) &&
             <button
               className='back'
               onClick={handleBackButton}

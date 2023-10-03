@@ -4,7 +4,10 @@ export const StepsContexts = createContext()
 
 export const StepProvider = ({ children }) => {
   const [activeForm, setActiveForm] = useState({
-    step1: true,
+    step1: {
+      active: true,
+      try: false
+    },
     step2: false,
     step3: false,
     step4: false,

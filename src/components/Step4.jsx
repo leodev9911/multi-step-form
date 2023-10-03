@@ -21,7 +21,17 @@ export default function Step4 () {
   const storagePrice = handleStoragePrice()
   const customizablePrice = handleCustomizablePrice()
 
-  const totalPrice = onlinePrice + subscriptionPrice + storagePrice + customizablePrice
+  let totalPrice = subscriptionPrice
+
+  if (onlinePrice) {
+    totalPrice += onlinePrice
+  }
+  if (storagePrice) {
+    totalPrice += storagePrice
+  }
+  if (customizablePrice) {
+    totalPrice += customizablePrice
+  }
 
   return (
     <section className='step4-section'>

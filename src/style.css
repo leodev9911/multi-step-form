@@ -76,3 +76,12 @@ main {
   border-radius: 8px;
   padding: 24px;
 }
+@media(max-width: 750px) {
+  main {
+    padding: 0px;
+  }
+  .multi-forms__container {
+    grid-template-columns: none;
+    padding: 0px;
+  }
+}

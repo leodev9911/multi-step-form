@@ -30,8 +30,10 @@ export default function Step2 () {
           htmlFor='arcade'
         >
           <img src={iconArcade} alt='Arcade icon' />
-          <h3>Arcade</h3>
-          <p>${monthly ? `${arcade.monthly}/mo` : `${arcade.yearly}/yr`}</p>
+          <div>
+            <h3>Arcade</h3>
+            <p>${monthly ? `${arcade.monthly}/mo` : `${arcade.yearly}/yr`}</p>
+          </div>
         </label>
         <input
           className='step2-inputs'
@@ -46,8 +48,10 @@ export default function Step2 () {
           htmlFor='advanced'
         >
           <img src={iconAdvanced} alt='Advanced icon' />
-          <h3>Advanced</h3>
-          <p>${monthly ? `${advanced.monthly}/mo` : `${advanced.yearly}/yr`}</p>
+          <div>
+            <h3>Advanced</h3>
+            <p>${monthly ? `${advanced.monthly}/mo` : `${advanced.yearly}/yr`}</p>
+          </div>
         </label>
         <input
           className='step2-inputs'
@@ -62,8 +66,10 @@ export default function Step2 () {
           htmlFor='pro'
         >
           <img src={iconPro} alt='Arcade icon' />
-          <h3>Pro</h3>
-          <p>${monthly ? `${pro.monthly}/mo` : `${pro.yearly}/yr`}</p>
+          <div>
+            <h3>Pro</h3>
+            <p>${monthly ? `${pro.monthly}/mo` : `${pro.yearly}/yr`}</p>
+          </div>
         </label>
       </form>
       <div className='toggleButton__container'>

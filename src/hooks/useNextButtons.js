@@ -1,14 +1,53 @@
 import { useContext } from 'react'
 import { StepsContexts } from '../context/changeStep'
+import { FormsContext } from '../context/formsContext'
 
 export function useNextButton () {
   const { activeForm, setActiveForm } = useContext(StepsContexts)
+  const { formsInfo } = useContext(FormsContext)
+
+  const wasTried = () => {
+    if (formsInfo.name === '' || formsInfo.email === '' || formsInfo.phone === '') {
+      return true
+    } else {
+      return false
+    }
+  }
+  const isValid = () => {
+    const regEx = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
+    if (formsInfo.email !== '') {
+      if (regEx.test(formsInfo.email)) {
+        return true
+      } else {
+        return false
+      }
+    }
+  }
 
   const handleNextButton = () => {
-    if (activeForm.step1) {
+    if (wasTried() === true || isValid() === false) {
       setActiveForm(prev => {
         return {
-          step1: false,
+          step1: {
+            active: true,
+            try: true
+          },
+          step2: false,
+          step3: false,
+          step4: false
+        }
+      })
+      return
+    }
+
+    if (activeForm.step1.active) {
+      setActiveForm(prev => {
+        return {
+          step1: {
+            active: false,
+            try: false
+          },
           step2: true,
           step3: false,
           step4: false
@@ -17,7 +56,10 @@ export function useNextButton () {
     } else if (activeForm.step2) {
       setActiveForm(prev => {
         return {
-          step1: false,
+          step1: {
+            active: false,
+            try: false
+          },
           step2: false,
           step3: true,
           step4: false
@@ -26,7 +68,10 @@ export function useNextButton () {
     } else if (activeForm.step3) {
       setActiveForm(prev => {
         return {
-          step1: false,
+          step1: {
+            active: false,
+            try: false
+          },
           step2: false,
           step3: false,
           step4: true
@@ -39,7 +84,10 @@ export function useNextButton () {
     if (activeForm.step2) {
       setActiveForm(prev => {
         return {
-          step1: true,
+          step1: {
+            active: true,
+            try: false
+          },
           step2: false,
           step3: false,
           step4: false
@@ -48,7 +96,10 @@ export function useNextButton () {
     } else if (activeForm.step3) {
       setActiveForm(prev => {
         return {
-          step1: false,
+          step1: {
+            active: false,
+            try: false
+          },
           step2: true,
           step3: false,
           step4: false
@@ -57,7 +108,10 @@ export function useNextButton () {
     } else if (activeForm.step4) {
       setActiveForm(prev => {
         return {
-          step1: false,
+          step1: {
+            active: false,
+            try: false
+          },
           step2: false,
           step3: true,
           step4: false
@@ -67,9 +121,26 @@ export function useNextButton () {
   }
 
   const handleConfirmButton = () => {
+    if (wasTried() === true || isValid() === false) {
+      setActiveForm(prev => {
+        return {
+          step1: {
+            active: true,
+            try: true
+          },
+          step2: false,
+          step3: false,
+          step4: false
+        }
+      })
+      return
+    }
     setActiveForm(prev => {
       return {
-        step1: false,
+        step1: {
+          active: false,
+          try: false
+        },
         step2: false,
         step3: false,
         step4: false,
@@ -78,5 +149,5 @@ export function useNextButton () {
     })
   }
 
-  return { handleNextButton, handleBackButton, handleConfirmButton }
+  return { handleNextButton, handleBackButton, handleConfirmButton, isValid }
 }

@@ -1,6 +1,7 @@
 .forms__container {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     padding: 30px 30px 10px 10px;
     flex-grow: 1;
 }
@@ -26,7 +27,6 @@
 .buttons__container {
     display: flex;
     width: 100%;
-    margin-top: 80px;
 }
 .buttons__container > button {
     width: 110px;
@@ -54,4 +54,23 @@
 .step:hover {
     background-color: var(--pastel-blue);
     color: white;
+}
+@media(max-width: 750px) {
+    .forms__container {
+        background-color: var(--magnolia);
+        padding: 0;
+    }
+    .mobile-section {
+        background-color: white;
+        padding: 28px;
+        border-radius: 10px;
+        width: 92%;
+        align-self: center;
+        position: relative;
+        top: -56px;
+    }
+    .buttons__container {
+        padding: 20px;
+        background-color: white;
+    }
 }

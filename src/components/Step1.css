@@ -9,9 +9,15 @@ form > div {
     gap: 8px;
 }
 form > div > label {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
     font-size: 1.4rem;
     font-weight: 500;
     color: var(--marine-blue);
+}
+form > div > label.required {
+    color: red;
 }
 form > div > input {
     color: var(--cool-gray);
@@ -22,6 +28,9 @@ form > div > input {
     height: 50px;
     border: 1px solid var(--light-gray);
     outline: none;
+}
+form > div > input.required {
+    border: 1px solid red;
 }
 form > div > input:focus-visible {
     border-color: var(--purplish-blue);

@@ -53,3 +53,18 @@ aside {
     font-weight: 700;
     color: white;
 }
+@media(max-width: 750px) {
+    aside {
+        flex-direction: row;
+        justify-content: center;
+        height: 100%;
+        width: 100%;
+        padding-top: 38px;
+        gap: 8px;
+        background-image: url(../assets/images/bg-sidebar-mobile.svg);
+        border-radius: 0px;
+    }
+    .scroll-points {
+        align-items: flex-start;
+    }
+}
